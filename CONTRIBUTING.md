@@ -1,34 +1,33 @@
-# Guía de Contribución
+# Aviso de Propiedad Intelectual
 
-¡Gracias por tu interés en contribuir a HouseCraft! Apreciamos cualquier contribución, ya sea reportando errores, mejorando la documentación o enviando código.
+## PROPIEDAD EXCLUSIVA - NO ES SOFTWARE DE CÓDIGO ABIERTO
 
-## Cómo Contribuir
+Este repositorio contiene software patentado y de propiedad exclusiva de HouseCraft, una compañía peruano-americana. Todo el código, documentación y activos relacionados están protegidos por las leyes de derechos de autor y tratados internacionales.
 
-### Reportar Errores
+## TÉRMINOS DE USO
 
-1. Verifica si el error ya ha sido reportado en [Issues](https://github.com/goodsmash/HouseCraft/issues).
-2. Si no existe, crea un nuevo issue con una descripción clara del problema.
-3. Incluye pasos para reproducir el error, capturas de pantalla y detalles de tu entorno.
+1. **PROHIBIDO EL USO NO AUTORIZADO**
+   - Queda estrictamente prohibido copiar, modificar, distribuir o utilizar este software de cualquier manera sin autorización expresa por escrito de los propietarios.
 
-### Solicitudes de Características
+2. **PROHIBIDA LA INGENIERÍA INVERSA**
+   - No está permitido desensamblar, descompilar o realizar ingeniería inversa de ningún componente de este software.
 
-1. Verifica si la característica ya ha sido solicitada.
-2. Si no, crea un nuevo issue describiendo la característica propuesta.
-3. Explica por qué esta característica sería útil para los usuarios.
+3. **SIN CONCESIÓN DE LICENCIA**
+   - Este repositorio se proporciona únicamente con fines de referencia. No se otorga ninguna licencia bajo patentes, derechos de autor, secretos comerciales u otra propiedad intelectual.
 
-### Enviar Código
+4. **PROPIEDAD INTELECTUAL**
+   - Todos los derechos, títulos e intereses sobre el software son y permanecerán siendo propiedad exclusiva de HouseCraft.
 
-1. Haz un fork del repositorio.
-2. Crea una rama para tu característica o corrección:
-   ```bash
-   git checkout -b mi-caracteristica
-   ```
-3. Haz commit de tus cambios con mensajes descriptivos.
-4. Haz push a la rama:
-   ```bash
-   git push origin mi-caracteristica
-   ```
-5. Abre un Pull Request.
+## CONTACTO
+
+Para solicitar permiso de uso o licencia, póngase en contacto con:
+
+HouseCraft Legal Department
+Email: legal@housecraft.com
+
+## AVISO LEGAL
+
+El uso no autorizado de este software puede resultar en acciones legales y la búsqueda de daños y perjuicios en la máxima medida permitida por la ley.
 
 ## Estándares de Código
 

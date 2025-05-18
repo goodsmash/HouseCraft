@@ -2,7 +2,17 @@
 
 ![HouseCraft Banner](https://via.placeholder.com/1200x400/2c3e50/ffffff?text=HouseCraft+Diseño+de+Casas)
 
-HouseCraft es una aplicación web interactiva que permite a los usuarios diseñar planos de casas de manera intuitiva, sin necesidad de conocimientos previos en arquitectura o diseño. Con una interfaz fácil de usar, los usuarios pueden especificar dimensiones, número de pisos, habitaciones y baños, y luego crear planos detallados.
+**PROPIEDAD EXCLUSIVA - TODOS LOS DERECHOS RESERVADOS**
+
+HouseCraft es una aplicación web interactiva patentada y de propiedad exclusiva de HouseCraft, una compañía peruano-americana. Este software está protegido por las leyes de derechos de autor y tratados internacionales. Queda estrictamente prohibida cualquier forma de copia, distribución, modificación o uso no autorizado.
+
+## Advertencia Legal
+
+Este software es propiedad exclusiva de HouseCraft. Está prohibido:
+- Copiar, modificar o distribuir este software
+- Realizar ingeniería inversa o desensamblar el código
+- Utilizar este software para desarrollar productos o servicios similares
+- CualQUIER otro uso no autorizado por escrito por los propietarios
 
 ## Características Principales
 

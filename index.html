@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura Fácil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Arquitectura Fácil</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#conceptos">Conceptos Básicos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#herramientas">Herramientas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5" id="inicio">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">¡Diseña tu Casa o Mansión!</h1>
+            <p class="lead">Crea el plano de tu hogar ideal con nuestras herramientas fáciles de usar.</p>
+            <hr class="my-4">
+            
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form id="datos-iniciales" class="text-start">
+                        <div class="mb-3">
+                            <label for="superficie-total" class="form-label">Superficie total (m²):</label>
+                            <input type="number" class="form-control" id="superficie-total" min="50" step="1" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="ancho" class="form-label">Ancho del terreno (metros):</label>
+                            <input type="number" class="form-control" id="ancho" min="5" step="0.1" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="largo" class="form-label">Largo del terreno (metros):</label>
+                            <input type="number" class="form-control" id="largo" min="5" step="0.1" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="pisos" class="form-label">Número de pisos:</label>
+                            <select class="form-select" id="pisos" required>
+                                <option value="1">1 piso</option>
+                                <option value="2">2 pisos</option>
+                                <option value="3">3 pisos</option>
+                                <option value="4">4 pisos</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="habitaciones" class="form-label">Número de habitaciones:</label>
+                            <input type="number" class="form-control" id="habitaciones" min="1" max="20" value="3" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="banos" class="form-label">Número de baños:</label>
+                            <input type="number" class="form-control" id="banos" min="1" max="10" value="2" required>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg mt-3">Comenzar diseño</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección de diseño (inicialmente oculta) -->
+    <div id="seccion-diseno" class="container mt-5" style="display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Diseño de tu Casa</h2>
+            <button class="btn btn-outline-secondary" onclick="volverAInicio()">
+                <i class="bi bi-arrow-left"></i> Volver a inicio
+            </button>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        Plano de Planta Baja
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="plano" style="height: 500px; border: 1px solid #ddd;">
+                            <canvas id="canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="piso-tabs" role="tablist">
+                            <!-- Las pestañas de pisos se generarán dinámicamente -->
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="btn-group">
+                                <button class="btn btn-outline-primary" onclick="seleccionarHerramienta('pared')">
+                                    <i class="bi bi-pencil"></i> Pared
+                                </button>
+                                <button class="btn btn-outline-secondary" onclick="seleccionarHerramienta('puerta')">
+                                    <i class="bi bi-door-open"></i> Puerta
+                                </button>
+                                <button class="btn btn-outline-success" onclick="seleccionarHerramienta('ventana')">
+                                    <i class="bi bi-border-all"></i> Ventana
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-danger" onclick="limpiarPlano()">
+                                    <i class="bi bi-trash"></i> Limpiar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        Especificaciones
+                    </div>
+                    <div class="card-body">
+                        <h5>Datos de la propiedad</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Superficie total:</span>
+                                <span id="especificacion-superficie">0 m²</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Dimensiones del terreno:</span>
+                                <span id="especificacion-dimensiones">0m x 0m</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Pisos:</span>
+                                <span id="especificacion-pisos">1</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Habitaciones:</span>
+                                <span id="especificacion-habitaciones">0</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Baños:</span>
+                                <span id="especificacion-banos">0</span>
+                            </li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Recomendaciones</h5>
+                        <div id="recomendaciones" class="small text-muted">
+                            <p>Aquí aparecerán recomendaciones basadas en tus especificaciones.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        Elementos del Plano
+                    </div>
+                    <div class="card-body">
+                        <div id="elementos-plano">
+                            <p class="text-muted">Dibuja elementos en el plano para verlos aquí.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" id="conceptos">
+        <h2 class="text-center mb-4">Conceptos Básicos</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Estructuras</h5>
+                        <p class="card-text">Aprende sobre los diferentes tipos de estructuras y cómo soportan los edificios.</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="mostrarInfo('estructuras')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Materiales</h5>
+                        <p class="card-text">Descubre los materiales de construcción más comunes y sus usos.</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="mostrarInfo('materiales')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Diseño</h5>
+                        <p class="card-text">Conceptos básicos de diseño arquitectónico y planificación de espacios.</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="mostrarInfo('diseno')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 mb-5" id="herramientas">
+        <h2 class="text-center mb-4">Herramientas Interactivas</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Crea tu Plano</h5>
+                        <div id="plano" class="mb-3" style="height: 300px; border: 1px solid #ddd;">
+                            <!-- Aquí irá el canvas para dibujar -->
+                            <canvas id="canvas" width="100%" height="100%"></canvas>
+                        </div>
+                        <button class="btn btn-primary" onclick="iniciarDibujo()">Dibujar Pared</button>
+                        <button class="btn btn-secondary" onclick="limpiarPlano()">Limpiar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Información del Módulo</h5>
+                        <div id="info-modulo" class="p-3 bg-light rounded">
+                            <p>Selecciona un concepto para ver más información.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center p-3">
+        <p>© 2025 Arquitectura Fácil - Aprende arquitectura de manera sencilla</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
